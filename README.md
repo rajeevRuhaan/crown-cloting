@@ -8,3 +8,16 @@ and styling used SASS
 ```script
 npm install sass
 ```
+firebase setting for authentication and firebase database
+```script
+npm i firebase
+```
+link: https://console.firebase.google.com/
+- create project at firebase.
+- install firebase library in your project
+ import {
+  getAuth,
+  signInWithRedirect,
+  signInWithPopup,
+  GoogleAuthProvider,
+} from "firebase/auth";
