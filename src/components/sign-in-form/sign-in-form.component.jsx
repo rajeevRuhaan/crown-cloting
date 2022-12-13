@@ -25,9 +25,10 @@ const SignIn = () =>  {
     e.preventDefault();
         try {
         const response = await signInAuthUserWithEmailAndPassword(email, password) 
-        console.log(response);       
+        console.log(response)   
+
         } catch (error) {
-            
+            alert('The provided username or password is incorrect')
         }   
     }
 
@@ -55,7 +56,7 @@ const SignIn = () =>  {
              value={password} />
             <div className='buttons-container'>
                <Button children="Sign in" buttonType="inverted" type="submit" />
-                <Button children="Google sign in" buttonType="google" onClick={signInWithGoogle}/> 
+                <Button type="button" children="Google sign in" buttonType="google" onClick={signInWithGoogle}/> 
             </div>
             
         </form>
