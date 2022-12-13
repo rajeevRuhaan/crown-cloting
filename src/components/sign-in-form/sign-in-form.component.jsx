@@ -1,8 +1,13 @@
-import {useState} from 'react';
-import './sign-in-form.styles.scss'
+import {useState, useContext} from 'react';
+
 import Button from "../button/button.component";
 import FormInput from "../form-input/form-input.component"
+
+import { UserContext } from '../../context/user.context';
+
 import { createUserDocumentFromAuth, signInAuthUserWithEmailAndPassword, signInWitGooglePopup } from '../../utils/firebase/firebase.util';
+
+import './sign-in-form.styles.scss'
 
 const defaultFormFields = {
     
@@ -16,6 +21,8 @@ const SignIn = () =>  {
 
     const {email, password} = formFields;
 
+    const {setCurrentUser} = useContext(UserContext);
+
     const handleChange = (e) => {
             const {name, value} = e.target;
             setFormFields({...formFields, [name]: value})
@@ -24,8 +31,9 @@ const SignIn = () =>  {
     const handleSubmit = async(e) => {
     e.preventDefault();
         try {
-        const response = await signInAuthUserWithEmailAndPassword(email, password) 
-        console.log(response)   
+        const {user} = await signInAuthUserWithEmailAndPassword(email, password) 
+        setCurrentUser(user)  
+        setFormFields(defaultFormFields) ;
 
         } catch (error) {
             alert('The provided username or password is incorrect')
