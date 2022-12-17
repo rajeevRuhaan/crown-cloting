@@ -30,7 +30,9 @@ const CheckOutItem = ({cartItem}) => {
             <div className='arrow' onClick={removeItemHandler}>
               &#10094;
             </div>
+            <div className='value'>
             {quantity}
+            </div>
             
             <div className='arrow' onClick={addItemHandler}>
             &#10095;
