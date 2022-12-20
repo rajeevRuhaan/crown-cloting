@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import Button from '../button/button.component';
 
 import { CartContext } from '../../context/cart.context';
@@ -22,8 +22,6 @@ const goToCheckOutHandler = ()=> {
             </div>
            
             <Button type="button" buttonType="inverted" onClick={goToCheckOutHandler}>go to checkout</Button>
-            
-            
         </div>
     )
 }

@@ -1,12 +1,7 @@
-
 import React from 'react';
 import { useContext } from 'react';
 
 import { CartContext } from '../../context/cart.context';
-
-import {ReactComponent as CloseIcon} from '../../assets/icons8-close.svg'
-import {ReactComponent as Left} from '../../assets/chevron-left.svg'
-import {ReactComponent as Right} from '../../assets/chevron-right.svg'
 
 import './checkout-item.styles.scss'
 
