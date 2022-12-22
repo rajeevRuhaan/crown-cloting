@@ -4,6 +4,11 @@ import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 
 import { CartContext } from "../../context/cart.context";
 import CartItem from "../cart-item/cart-item.component";
+import {
+  CartDropDownContainer,
+  EmptyMessage,
+  CartItems,
+} from "./cart-dropdown.styles";
 
 import "./cart-dropdown.styles.scss";
 
@@ -12,16 +17,17 @@ const CartDropdown = () => {
   const navigate = useNavigate();
 
   const goToCheckOutHandler = () => {
-    console.log("checkout");
     navigate("/checkout");
   };
   return (
-    <div className="cart-dropdown-container">
-      <div className="cart-items">
-        {cartItems.map((item) => (
-          <CartItem key={item.id} cartItem={item} />
-        ))}
-      </div>
+    <CartDropDownContainer>
+      <CartItems>
+        {cartItems.length ? (
+          cartItems.map((item) => <CartItem key={item.id} cartItem={item} />)
+        ) : (
+          <EmptyMessage>Your cart is empty</EmptyMessage>
+        )}
+      </CartItems>
 
       <Button
         type="button"
@@ -30,7 +36,7 @@ const CartDropdown = () => {
       >
         go to checkout
       </Button>
-    </div>
+    </CartDropDownContainer>
   );
 };
 
