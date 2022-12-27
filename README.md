@@ -21,3 +21,18 @@ link: https://console.firebase.google.com/
   signInWithPopup,
   GoogleAuthProvider,
 } from "firebase/auth";
+
+### state management using Redux
+```script
+npm i redux redux-thunk redux-devtools-extension
+```
+
+## implement reselect for cashing
+```script
+ npm i reselect
+ ```
+
+### Redux store for persisting data
+```script
+ npm i redux-persist
+ ```
