@@ -17,11 +17,7 @@ export const selectCategoriesMap = createSelector(
     }, {})
 );
 
-/* export const selectCategoriesMap = (state) => {
-  console.log("selector categories fired");
-  return state.categories.categories.reduce((acc, docSnapshot) => {
-    const { title, items } = docSnapshot;
-    acc[title.toLowerCase()] = items;
-    return acc;
-  }, {});
-}; */
+export const selectIsCategoriesLoading = createSelector(
+  [selectCategoryReducer],
+  (categoriesSlice) => categoriesSlice.isLoading
+);
