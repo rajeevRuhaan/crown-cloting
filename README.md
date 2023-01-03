@@ -1,5 +1,6 @@
 ### Crown-Clothing ecommerce web app
 
+
 -This application is build with  
 "react": "^18.2.0",
 "react-dom": "^18.2.0" 
@@ -21,3 +22,8 @@ link: https://console.firebase.google.com/
   signInWithPopup,
   GoogleAuthProvider,
 } from "firebase/auth";
+
+## DEMO
+[LINK](https://shiny-cranachan-bef447.netlify.app/)
+
+![alt text](./src/assets/crown-clothing.png)
