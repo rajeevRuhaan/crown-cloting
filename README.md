@@ -27,7 +27,7 @@ link: https://console.firebase.google.com/
 npm i redux redux-thunk redux-devtools-extension
 ```
 
-## implement reselect for cashing
+## implement reselect: A library for creating memoized "selector" functions
 ```script
  npm i reselect
  ```
