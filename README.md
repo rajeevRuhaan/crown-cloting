@@ -43,6 +43,7 @@ We make payment request using backend. In this project we are using react fronte
 npm i @stripe/stripe-js @stripe/react-stripe-js
  npm i stripe dotenv
 ```
+netlify dev
 
  ### Objective: 
  I have created this project for learning purpose.

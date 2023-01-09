@@ -9,7 +9,7 @@ export const PaymentFormContainer = styled.div`
   margin-top: 100px;
 `;
 
-export const FormContainer = styled.div`
+export const FormContainer = styled.form`
   height: 100px;
   min-height: 500px;
 `;
