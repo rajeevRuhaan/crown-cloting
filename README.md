@@ -35,7 +35,14 @@ npm i redux redux-thunk redux-devtools-extension
 ### Redux store for persisting data
 ```script
  npm i redux-persist
+
  ```
+We make payment request using backend. In this project we are using react frontend thus we need to implement third party library Netlify
+## Stripe
+```script
+npm i @stripe/stripe-js @stripe/react-stripe-js
+ npm i stripe dotenv
+```
 
  ### Objective: 
  I have created this project for learning purpose.

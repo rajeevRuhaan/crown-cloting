@@ -13,6 +13,7 @@ const App = () => {
   useEffect(() => {
     dispatch(checkUserSession());
   }, [dispatch]);
+  console.log("env", process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
 
   return (
     <Routes>
