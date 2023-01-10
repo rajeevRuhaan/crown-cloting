@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
 
@@ -19,6 +20,7 @@ const defaultFormFields = {
 };
 
 const SignInForm = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [formFields, setFormFields] = useState(defaultFormFields);
 
@@ -35,6 +37,7 @@ const SignInForm = () => {
       dispatch(emailSignInStart(email, password));
 
       setFormFields(defaultFormFields);
+      navigate("/shop");
     } catch (error) {
       alert("The provided username or password is incorrect");
     }
@@ -43,6 +46,7 @@ const SignInForm = () => {
   const signInWithGoogle = () => {
     dispatch(googleSignInStart());
     // await signInWithGooglePopup();
+    navigate("/shop");
   };
 
   return (

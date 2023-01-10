@@ -1,5 +1,7 @@
 ### Crown-Clothing ecommerce web app
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/01765ca7-f646-416b-9aa0-69abde17f785/deploy-status)](https://app.netlify.com/sites/shiny-cranachan-bef447/deploys)
+
 -This application is build with  
 "react": "^18.2.0",
 "react-dom": "^18.2.0" 

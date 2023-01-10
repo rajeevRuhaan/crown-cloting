@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import FormInput from "../form-input/form-input.component";
@@ -20,6 +20,7 @@ const defaultFormFields = {
 };
 
 const SignUpForm = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
@@ -35,6 +36,7 @@ const SignUpForm = () => {
 
       // clear form field
       setFormFields(defaultFormFields);
+      navigate("/shop");
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         alert("Cannot create user, email already in use");

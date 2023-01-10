@@ -15,10 +15,14 @@ export const cartReducer = (state = CART_INITIAL_VALUE, action) => {
         cartItems: payload,
       };
     case CART_ACTION_TYPES.SET_IS_CART_OPEN:
-      console.log("reducer", payload);
       return {
         ...state,
         isCartOpen: payload,
+      };
+    case CART_ACTION_TYPES.SET_CART_EMPTY:
+      return {
+        ...state,
+        cartItems: [],
       };
     default:
       return state;
