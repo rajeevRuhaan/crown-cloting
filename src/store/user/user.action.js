@@ -1,4 +1,3 @@
-import CartItem from "../../components/cart-item/cart-item.component";
 import { createAction } from "../../utils/reducer/reducer.utils";
 import { USER_ACTION_TYPES } from "./user.types";
 

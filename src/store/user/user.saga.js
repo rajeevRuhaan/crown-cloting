@@ -6,7 +6,6 @@ import {
   signInFailed,
   signInSuccess,
   signOutFailed,
-  signOutStart,
   signOutSuccess,
   signUpFailed,
   signUpSuccess,
