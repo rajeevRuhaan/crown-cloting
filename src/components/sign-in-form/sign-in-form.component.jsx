@@ -1,14 +1,18 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { useDispatch } from "react-redux";
 
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
 
-import {
-  signInAuthUserWithEmailAndPassword,
-  signInWitGooglePopup,
-} from "../../utils/firebase/firebase.util";
+//import { signInAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.util";
 
 import "./sign-in-form.styles.scss";
+import {
+  emailSignInStart,
+  googleSignInStart,
+} from "../../store/user/user.action";
 
 const defaultFormFields = {
   email: "",
@@ -16,6 +20,8 @@ const defaultFormFields = {
 };
 
 const SignInForm = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [formFields, setFormFields] = useState(defaultFormFields);
 
   const { email, password } = formFields;
@@ -28,16 +34,19 @@ const SignInForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await signInAuthUserWithEmailAndPassword(email, password);
+      dispatch(emailSignInStart(email, password));
 
       setFormFields(defaultFormFields);
+      navigate("/shop");
     } catch (error) {
       alert("The provided username or password is incorrect");
     }
   };
 
-  const signInWithGoogle = async () => {
-    await signInWitGooglePopup();
+  const signInWithGoogle = () => {
+    dispatch(googleSignInStart());
+    // await signInWithGooglePopup();
+    navigate("/shop");
   };
 
   return (
