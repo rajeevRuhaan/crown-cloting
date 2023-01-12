@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCurrentUser } from "../../store/user/user.selector";
 
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
@@ -23,13 +24,17 @@ const SignInForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [formFields, setFormFields] = useState(defaultFormFields);
+  const currentUser = useSelector(selectCurrentUser);
 
   const { email, password } = formFields;
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormFields({ ...formFields, [name]: value });
-  };
+  const handleChange = useCallback(
+    (e) => {
+      const { name, value } = e.target;
+      setFormFields({ ...formFields, [name]: value });
+    },
+    [formFields]
+  );
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,17 +42,19 @@ const SignInForm = () => {
       dispatch(emailSignInStart(email, password));
 
       setFormFields(defaultFormFields);
-      navigate("/shop");
     } catch (error) {
       alert("The provided username or password is incorrect");
     }
   };
 
-  const signInWithGoogle = () => {
+  const signInWithGoogle = useCallback(() => {
     dispatch(googleSignInStart());
     // await signInWithGooglePopup();
-    navigate("/shop");
-  };
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (currentUser) return navigate("/shop");
+  }, [currentUser, navigate]);
 
   return (
     <div className="sign-in-container">
@@ -85,3 +92,10 @@ const SignInForm = () => {
 };
 
 export default SignInForm;
+
+export const Component = () => {
+  const handleClick = () => {
+    console.log("clicked");
+  };
+  return <button onClick={handleClick} />;
+};
