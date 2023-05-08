@@ -55,7 +55,7 @@ netlify dev
  ### Objective: 
  I have created this project for learning purpose.
  I am using React for more than year and trying to figure out
- how components are re-rendered. It is quite completed and took course from
+ how components are re-rendered. React re-render is quite completed and took course from
  Udemy to learn how to optimise components for re-rendring.
 
  Udemy Course: Complete react Developer in 2023
